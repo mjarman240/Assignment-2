@@ -8,7 +8,7 @@ public class Birthday {
         int [] childAge = new int[65535];
         String [] childToy = new String[65535];
         int i = 0;
-        int tempValue;
+        String tempValue;
 
         // Create Object
         Toy a = new Toy();
@@ -42,6 +42,13 @@ public class Birthday {
             // Ask if they want balloon
             System.out.println("Do you want a balloon");
             a.addBalloon(userInput.nextLine());
+
+            // Ask if they want to finish program
+            System.out.println("Do you wish to add another child");
+            tempValue = userInput.nextLine();
+            if (tempValue.equalsIgnoreCase("no")) {
+                done = true;
+            }
 
             i++;
         } while (!done);
