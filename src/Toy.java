@@ -44,7 +44,6 @@ public class Toy
      *
      * @param t  the toy requested
      * @param a  the age of the child
-     * @param c  the cost to the cost of the toy requested
      */
     public Toy(String t, int a)
     {
