@@ -38,14 +38,12 @@ public class Birthday {
 
             // Prompt for toy wanted
             do {
+                System.out.println("Choose a toy: a plushie, blocks, or a book");
+                childToy = userInput.nextLine();
+                a.setCost(childToy);
+                a.setToy(childToy);
                 if (!a.ageOK()) {
-                    System.out.println("Choose a toy: a plushie, blocks, or a book");
-                    childToy = userInput.nextLine();
-                    a.setCost(childToy);
-                    a.setToy(childToy);
-                }
-                if (!a.ageOK()) {
-                    System.out.println("This toy may not be age appropriate. Are you sure you wish to proceed");
+                    System.out.println("This toy may not be age appropriate. Are you sure you wish to proceed?");
                     if (userInput.nextLine().equalsIgnoreCase("yes")) {
                         verifyAge = true;
                     }
