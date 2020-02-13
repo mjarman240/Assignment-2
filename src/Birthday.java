@@ -4,12 +4,14 @@ public class Birthday {
     public static void main (String [] args) {
         // Variables
         boolean done = false;
-        String [] childName = new String[65535];
+        String childName;
         int childAge;
         String childToy;
         int i = 0;
         String tempValue;
         boolean verifyAge = false;
+        String [] storedData = new String[65535];
+        int totalCost = 0;
 
         // Create Object
         Toy a = new Toy();
@@ -24,39 +26,38 @@ public class Birthday {
 
             // Prompt for child's name
             System.out.println("Please enter the name of the child");
-            childName[i] = userInput.nextLine();
+            childName = userInput.nextLine();
 
             // Prompt for child's age
             System.out.println("Please enter the age of the child");
             childAge = userInput.nextInt();
             a.setAge(childAge);
 
-            // Fix nextline behavior
+            // Fix nextLine behavior
             userInput.nextLine();
 
             // Prompt for toy wanted
             do {
+                /* CURRENTLY BROKEN - COMMENTED OUT UNTIL FURTHER NOTICE
                 if (verifyAge) {
-                    System.out.println("This toy may not be appropriate for your child. Do you wish to proceed?");
+                    System.out.println("This toy may not be age appropriate for your child. Do you wish to proceed?");
                     tempValue = userInput.nextLine();
-                    if(tempValue.equalsIgnoreCase("no")) {
+                    if (tempValue.equalsIgnoreCase("no")) {
                         verifyAge = false;
+                    } else {
+                        verifyAge = true;
                     }
                 }
-                if (!verifyAge) {
+                */
+                if (!a.ageOK()) {
                     System.out.println("Choose a toy: a plushie, blocks, or a book");
                     childToy = userInput.nextLine();
                     a.setCost(childToy);
                     a.setToy(childToy);
                     verifyAge = true;
                 }
-            } while (a.ageOK());
-
-            // Check if toy is age appropriate
-            if (!a.ageOK()) {
-                System.out.println("Do you wish to proceed with this toy? It may not be appropriate for thr age of your child");
-
-            }
+                System.out.println(verifyAge);
+            } while (!verifyAge);
 
             // Ask if they want card
             System.out.println("Do you want a card");
@@ -70,14 +71,24 @@ public class Birthday {
             System.out.println("Do you wish to add another child");
             tempValue = userInput.nextLine();
 
-            System.out.println(childName[i] + a.toString());
+            // Print value to string array
+            storedData[i] = childName + a.toString();
 
             if (tempValue.equalsIgnoreCase("no")) {
                 done = true;
             }
 
+            totalCost += a.getCost();
+
             i++;
         } while (!done);
-        System.out.println(a.getCost());
+
+        // Print data to console
+        int j = 0;
+        while (j < i) {
+            System.out.println(storedData[j]);
+            j++;
+        }
+        System.out.println("The total cost is $" + totalCost);
     }
 }
