@@ -5,10 +5,11 @@ public class Birthday {
         // Variables
         boolean done = false;
         String [] childName = new String[65535];
-        int [] childAge = new int[65535];
-        String [] childToy = new String[65535];
+        int childAge;
+        String childToy;
         int i = 0;
         String tempValue;
+        boolean verifyAge = false;
 
         // Create Object
         Toy a = new Toy();
@@ -27,17 +28,35 @@ public class Birthday {
 
             // Prompt for child's age
             System.out.println("Please enter the age of the child");
-            childAge[i] = userInput.nextInt();
-            a.setAge(childAge[i]);
+            childAge = userInput.nextInt();
+            a.setAge(childAge);
 
             // Fix nextline behavior
             userInput.nextLine();
 
             // Prompt for toy wanted
-            System.out.println("Choose a toy: a plushie, blocks, or a book");
-            childToy[i] = userInput.nextLine();
-            a.setToy(childToy[i]);
-            System.out.println(childToy[i]);
+            do {
+                if (verifyAge) {
+                    System.out.println("This toy may not be appropriate for your child. Do you wish to proceed?");
+                    tempValue = userInput.nextLine();
+                    if(tempValue.equalsIgnoreCase("no")) {
+                        verifyAge = false;
+                    }
+                }
+                if (!verifyAge) {
+                    System.out.println("Choose a toy: a plushie, blocks, or a book");
+                    childToy = userInput.nextLine();
+                    a.setCost(childToy);
+                    a.setToy(childToy);
+                    verifyAge = true;
+                }
+            } while (a.ageOK());
+
+            // Check if toy is age appropriate
+            if (!a.ageOK()) {
+                System.out.println("Do you wish to proceed with this toy? It may not be appropriate for thr age of your child");
+
+            }
 
             // Ask if they want card
             System.out.println("Do you want a card");
@@ -50,6 +69,9 @@ public class Birthday {
             // Ask if they want to finish program
             System.out.println("Do you wish to add another child");
             tempValue = userInput.nextLine();
+
+            System.out.println(childName[i] + a.toString());
+
             if (tempValue.equalsIgnoreCase("no")) {
                 done = true;
             }
