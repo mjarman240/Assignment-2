@@ -7,6 +7,7 @@ public class Birthday {
         boolean verifyAge = false;
         int childAge;
         int i = 0;
+        int j = 0;
         int totalCost = 0;
         String childName;
         String childToy;
@@ -23,7 +24,6 @@ public class Birthday {
         System.out.println("Welcome to the toy factory.");
 
         do {
-
             // Prompt for child's name
             System.out.println("Please enter the name of the child");
             childName = userInput.nextLine();
@@ -62,26 +62,28 @@ public class Birthday {
 
             // Ask if they want to finish program
             System.out.println("Do you wish to add another child");
-            tempValue = userInput.nextLine();
+            if (userInput.nextLine().equalsIgnoreCase("no")) {
+                done = true;
+            }
 
             // Print value to string array
             storedData[i] = childName + a.toString();
 
-            if (tempValue.equalsIgnoreCase("no")) {
-                done = true;
-            }
-
+            // Add total cost to ongoing count
             totalCost += a.getCost();
 
+            // Iterate value at end of loop
             i++;
         } while (!done);
 
         // Print data to console
-        int j = 0;
         while (j < i) {
             System.out.println(storedData[j]);
             j++;
         }
         System.out.println("The total cost is $" + totalCost);
+
+        // Print programmer name
+        System.out.println("Michael Jarman");
     }
 }
