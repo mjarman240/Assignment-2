@@ -8,7 +8,7 @@ public class Birthday {
         int childAge;
         int i = 0;
         int j = 0;
-        int totalCost = 0;
+        double totalCost = 0;
         String childName;
         String childToy;
         String tempValue;
@@ -84,6 +84,7 @@ public class Birthday {
         System.out.println("The total cost is $" + totalCost);
 
         // Print programmer name
-        System.out.println("Michael Jarman");
+        System.out.println();
+        System.out.println("Programmer: Michael Jarman");
     }
 }
