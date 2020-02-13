@@ -30,10 +30,14 @@ public class Birthday {
             childAge[i] = userInput.nextInt();
             a.setAge(childAge[i]);
 
+            // Fix nextline behavior
+            userInput.nextLine();
+
             // Prompt for toy wanted
             System.out.println("Choose a toy: a plushie, blocks, or a book");
             childToy[i] = userInput.nextLine();
             a.setToy(childToy[i]);
+            System.out.println(childToy[i]);
 
             // Ask if they want card
             System.out.println("Do you want a card");
@@ -52,5 +56,6 @@ public class Birthday {
 
             i++;
         } while (!done);
+        System.out.println(a.getCost());
     }
 }
