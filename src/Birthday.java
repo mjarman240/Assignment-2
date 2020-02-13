@@ -38,25 +38,20 @@ public class Birthday {
 
             // Prompt for toy wanted
             do {
-                /* CURRENTLY BROKEN - COMMENTED OUT UNTIL FURTHER NOTICE
-                if (verifyAge) {
-                    System.out.println("This toy may not be age appropriate for your child. Do you wish to proceed?");
-                    tempValue = userInput.nextLine();
-                    if (tempValue.equalsIgnoreCase("no")) {
-                        verifyAge = false;
-                    } else {
-                        verifyAge = true;
-                    }
-                }
-                */
                 if (!a.ageOK()) {
                     System.out.println("Choose a toy: a plushie, blocks, or a book");
                     childToy = userInput.nextLine();
                     a.setCost(childToy);
                     a.setToy(childToy);
+                }
+                if (!a.ageOK()) {
+                    System.out.println("This toy may not be age appropriate. Are you sure you wish to proceed");
+                    if (userInput.nextLine().equalsIgnoreCase("yes")) {
+                        verifyAge = true;
+                    }
+                } else {
                     verifyAge = true;
                 }
-                System.out.println(verifyAge);
             } while (!verifyAge);
 
             // Ask if they want card
