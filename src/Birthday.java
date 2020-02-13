@@ -2,20 +2,16 @@ import java.util.Scanner;
 
 public class Birthday {
     public static void main (String [] args) {
-        // Variables - Boolean
+        // Variables
         boolean done = false;
         boolean verifyAge = false;
-
-        // Variables - String
+        int childAge;
+        int i = 0;
+        int totalCost = 0;
         String childName;
         String childToy;
         String tempValue;
         String [] storedData = new String[65535];
-
-        // Variables - int
-        int childAge;
-        int i = 0;
-        int totalCost = 0;
 
         // Create Object
         Toy a = new Toy();
