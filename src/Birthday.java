@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Birthday {
@@ -19,6 +20,9 @@ public class Birthday {
 
         // Temporary Scanner Object
         Scanner userInput = new Scanner(System.in);
+
+        // RNG Object
+        Random randNum = new Random();
 
         // Welcome user - dialog boxes to come soon
         System.out.println("Welcome to the toy factory.");
@@ -67,7 +71,7 @@ public class Birthday {
             }
 
             // Print value to string array
-            storedData[i] = childName + a.toString();
+            storedData[i] = "The gift for " + childName + a.toString();
 
             // Add total cost to ongoing count
             totalCost += a.getCost();
@@ -82,6 +86,9 @@ public class Birthday {
             j++;
         }
         System.out.println("The total cost is $" + totalCost);
+
+        // Print random order number
+        System.out.println("Your order number is " + randNum.nextInt(99999));
 
         // Print programmer name
         System.out.println();
