@@ -20,17 +20,17 @@ public class Birthday {
         Random randNum = new Random();
 
         // Welcome dialog
-        JOptionPane.showMessageDialog(null, "Welcome to the toy factory!");
+        JOptionPane.showMessageDialog(null, "Welcome to the Toy Company \nto choose gifts for young children");
 
         do {
             // Create toy object
             a = new Toy();
 
             // Prompt for child's name
-            childName = JOptionPane.showInputDialog("Please enter the name of the child");
+            childName = JOptionPane.showInputDialog("Enter the name of the child");
 
             // Prompt for child's age
-            childAge = Integer.parseInt(JOptionPane.showInputDialog("Please enter the age of the child"));
+            childAge = Integer.parseInt(JOptionPane.showInputDialog("How old is the child?"));
             a.setAge(childAge);
 
             // Prompt for toy wanted
@@ -38,26 +38,28 @@ public class Birthday {
                 childToy = JOptionPane.showInputDialog("Choose a toy: a plushie, blocks, or a book");
                 a.setCost(childToy);
                 a.setToy(childToy);
-                if (!a.ageOK()) {
-                    if (JOptionPane.showInputDialog("This toy may not be age appropriate. Do you want to buy another toy?").equalsIgnoreCase("no")) {
+                if (a.getCost() == 0) {
+                    JOptionPane.showMessageDialog(null, "Invalid choice");
+                } else if (!a.ageOK()) {
+                    if (JOptionPane.showInputDialog("Toy is not age-appropriate \nDo you want to buy a different toy? Yes or No").equalsIgnoreCase("no")) {
                         verifyAge = true;
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Good choice!");
-                    verifyAge = true;
+                        JOptionPane.showMessageDialog(null, "Good choice!");
+                        verifyAge = true;
                 }
             } while (!verifyAge);
 
             // Ask if they want card
-            a.addCard(JOptionPane.showInputDialog("Do you want a card?"));
+            a.addCard(JOptionPane.showInputDialog("Do you want a card with the gift? Yes or No"));
 
             // Ask if they want balloon
-            a.addBalloon(JOptionPane.showInputDialog("Do you want a balloon?"));
+            a.addBalloon(JOptionPane.showInputDialog("Do you want a balloon with the gift? Yes or No"));
 
             JOptionPane.showMessageDialog(null, "The gift for " + childName + a.toString());
 
             // Ask if they want to finish program
-            if (JOptionPane.showInputDialog("Do you wish to add another child?").equalsIgnoreCase("no")) {
+            if (JOptionPane.showInputDialog("Do you want to add another toy? Yes or No").equalsIgnoreCase("no")) {
                 done = true;
             }
 
