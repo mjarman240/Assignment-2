@@ -55,6 +55,7 @@ public class Birthday {
                         verifyAge = true;
                     }
                 } else {
+                    System.out.println("Good choice!");
                     verifyAge = true;
                 }
             } while (!verifyAge);
