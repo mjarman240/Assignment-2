@@ -50,8 +50,8 @@ public class Birthday {
                 a.setCost(childToy);
                 a.setToy(childToy);
                 if (!a.ageOK()) {
-                    System.out.println("This toy may not be age appropriate. Are you sure you wish to proceed?");
-                    if (userInput.nextLine().equalsIgnoreCase("yes")) {
+                    System.out.println("This toy may not be age appropriate. Do you want to buy another toy?");
+                    if (userInput.nextLine().equalsIgnoreCase("no")) {
                         verifyAge = true;
                     }
                 } else {
