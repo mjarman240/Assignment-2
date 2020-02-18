@@ -5,16 +5,10 @@ import java.util.Scanner;
 public class Birthday {
     public static void main (String [] args) {
         // Variables
-        boolean done = false;
-        boolean verifyAge = false;
-        int childAge;
-        int i = 0;
-        int j = 0;
+        boolean done = false, verifyAge = false;
+        int childAge, i = 0;
         double totalCost = 0;
-        String childName;
-        String childToy;
-        String tempValue;
-        String [] storedData = new String[65535];
+        String childName, childToy;
 
         // Declare Object
         Toy a;
@@ -41,37 +35,31 @@ public class Birthday {
 
             // Prompt for toy wanted
             do {
-                System.out.println("Choose a toy: a plushie, blocks, or a book");
-                childToy = userInput.nextLine();
+                childToy = JOptionPane.showInputDialog("Choose a toy: a plushie, blocks, or a book");
                 a.setCost(childToy);
                 a.setToy(childToy);
                 if (!a.ageOK()) {
-                    System.out.println("This toy may not be age appropriate. Do you want to buy another toy?");
-                    if (userInput.nextLine().equalsIgnoreCase("no")) {
+                    if (JOptionPane.showInputDialog("This toy may not be age appropriate. Do you want to buy another toy?").equalsIgnoreCase("no")) {
                         verifyAge = true;
                     }
                 } else {
-                    System.out.println("Good choice!");
+                    JOptionPane.showMessageDialog(null, "Good choice!");
                     verifyAge = true;
                 }
             } while (!verifyAge);
 
             // Ask if they want card
-            System.out.println("Do you want a card");
-            a.addCard(userInput.nextLine());
+            a.addCard(JOptionPane.showInputDialog("Do you want a card?"));
 
             // Ask if they want balloon
-            System.out.println("Do you want a balloon");
-            a.addBalloon(userInput.nextLine());
+            a.addBalloon(JOptionPane.showInputDialog("Do you want a balloon?"));
+
+            JOptionPane.showMessageDialog(null, "The gift for " + childName + a.toString());
 
             // Ask if they want to finish program
-            System.out.println("Do you wish to add another child");
-            if (userInput.nextLine().equalsIgnoreCase("no")) {
+            if (JOptionPane.showInputDialog("Do you wish to add another child?").equalsIgnoreCase("no")) {
                 done = true;
             }
-
-            // Print value to string array
-            storedData[i] = "The gift for " + childName + a.toString();
 
             // Add total cost to ongoing count
             totalCost += a.getCost();
@@ -80,18 +68,13 @@ public class Birthday {
             i++;
         } while (!done);
 
-        // Print data to console
-        while (j < i) {
-            System.out.println(storedData[j]);
-            j++;
-        }
-        System.out.println("The total cost is $" + totalCost);
+        // Show total cost
+        JOptionPane.showMessageDialog(null, "The total cost is $" + totalCost);
 
         // Print random order number
-        System.out.println("Your order number is " + randNum.nextInt(99999));
+        JOptionPane.showMessageDialog(null, "Your order number is " + randNum.nextInt(99999));
 
         // Print programmer name
-        System.out.println();
-        System.out.println("Programmer: Michael Jarman");
+        JOptionPane.showMessageDialog(null, "Programmer: Michael Jarman");
     }
 }
