@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -24,24 +25,19 @@ public class Birthday {
         // RNG Object
         Random randNum = new Random();
 
-        // Welcome user - dialog boxes to come soon
-        System.out.println("Welcome to the toy factory.");
+        // Welcome dialog
+        JOptionPane.showMessageDialog(null, "Welcome to the toy factory!");
 
         do {
             // Create toy object
             a = new Toy();
 
             // Prompt for child's name
-            System.out.println("Please enter the name of the child");
-            childName = userInput.nextLine();
+            childName = JOptionPane.showInputDialog("Please enter the name of the child");
 
             // Prompt for child's age
-            System.out.println("Please enter the age of the child");
-            childAge = userInput.nextInt();
+            childAge = Integer.parseInt(JOptionPane.showInputDialog("Please enter the age of the child"));
             a.setAge(childAge);
-
-            // Fix nextLine behavior
-            userInput.nextLine();
 
             // Prompt for toy wanted
             do {
