@@ -15,8 +15,8 @@ public class Birthday {
         String tempValue;
         String [] storedData = new String[65535];
 
-        // Create Object
-        Toy a = new Toy();
+        // Declare Object
+        Toy a;
 
         // Temporary Scanner Object
         Scanner userInput = new Scanner(System.in);
@@ -28,6 +28,9 @@ public class Birthday {
         System.out.println("Welcome to the toy factory.");
 
         do {
+            // Create toy object
+            a = new Toy();
+
             // Prompt for child's name
             System.out.println("Please enter the name of the child");
             childName = userInput.nextLine();
