@@ -173,6 +173,7 @@ public class Toy
     {
         if (toy.equalsIgnoreCase("plushie")) toy="a plushie";
         else if (toy.equalsIgnoreCase("book")) toy="a book";
+        else toy="a block";
 
         return " at " + age + " years old is " + toy + " for $" + dollar.format(getCost());
     }
