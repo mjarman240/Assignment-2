@@ -33,13 +33,13 @@ public class Birthday {
             childAge = Integer.parseInt(JOptionPane.showInputDialog("How old is the child?"));
             a.setAge(childAge);
 
-            // Prompt for toy wanted
+            // Prompt for toy wanted and verify toy is valid
             do {
                 childToy = JOptionPane.showInputDialog("Choose a toy: a plushie, blocks, or a book");
                 a.setCost(childToy);
                 a.setToy(childToy);
                 if (a.getCost() == 0) {
-                    JOptionPane.showMessageDialog(null, "Invalid choice");
+                    JOptionPane.showMessageDialog(null, "Invalid choice\nPlease choose again");
                 } else if (!a.ageOK()) {
                     if (JOptionPane.showInputDialog("Toy is not age-appropriate \nDo you want to buy a different toy? Yes or No").equalsIgnoreCase("no")) {
                         verifyAge = true;
@@ -73,10 +73,7 @@ public class Birthday {
         // Show total cost
         JOptionPane.showMessageDialog(null, "The total cost is $" + totalCost);
 
-        // Print random order number
-        JOptionPane.showMessageDialog(null, "Your order number is " + randNum.nextInt(99999));
-
-        // Print programmer name
-        JOptionPane.showMessageDialog(null, "Programmer: Michael Jarman");
+        // Print random order number and programmer name
+        JOptionPane.showMessageDialog(null, "Your order number is " + randNum.nextInt(99999) + "\nProgrammer: Michael Jarman");
     }
 }
