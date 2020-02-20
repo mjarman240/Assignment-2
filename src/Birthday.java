@@ -71,6 +71,6 @@ public class Birthday {
         JOptionPane.showMessageDialog(null, "The total cost is $" + totalCost);
 
         // Print random order number and programmer name
-        JOptionPane.showMessageDialog(null, "Your order number is " + randNum.nextInt(99999) + "\nProgrammer: Michael Jarman");
+        JOptionPane.showMessageDialog(null, "Your order number is " + (randNum.nextInt(100000)+1) + "\nProgrammer: Michael Jarman");
     }
 }
