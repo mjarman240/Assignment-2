@@ -13,9 +13,6 @@ public class Birthday {
         // Declare Object
         Toy a;
 
-        // Temporary Scanner Object
-        Scanner userInput = new Scanner(System.in);
-
         // RNG Object
         Random randNum = new Random();
 
